@@ -6,7 +6,7 @@
         android:id="@+id/one"
         android:enabled="true"
         android:icon="@drawable/ic_test"
-        android:title="One"
+        android:title="List"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/two"

@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.udos.android_demo_bottom_navigation.MainActivity">
+    tools:context="de.udos.android_demo_bottom_navigation.MainActivity"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/app_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:titleTextColor="#FFFFFF"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/containerContentFragment">
+        android:layout_height="0dp"
+        android:id="@+id/containerContentFragment"
+        android:layout_weight="1">
 
     </FrameLayout>
 
@@ -18,10 +30,9 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="#FFFFFF"
         app:itemTextColor="#FFFFFF"
         app:menu="@menu/bottom_navigation" />
 
-</RelativeLayout>
+</LinearLayout>

@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -17,16 +19,28 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_toolbar);
+        setSupportActionBar(toolbar);
 
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return true;
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
-        final Fragment currentFragment = fragmentManager.findFragmentById(R.id.containerContentFragment);
+        //final Fragment currentFragment = fragmentManager.findFragmentById(R.id.containerContentFragment);
         final Fragment nextFragment;
 
         switch (item.getItemId()) {
@@ -52,15 +66,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
         }
 
-        if (currentFragment == null || (currentFragment.getClass() != nextFragment.getClass())) {
+        //if (currentFragment == null || (currentFragment.getClass() != nextFragment.getClass())) {
 
             fragmentManager
                     .beginTransaction()
                     .replace(R.id.containerContentFragment, nextFragment)
-                    .addToBackStack(null)
+                    //.addToBackStack(null)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
-        }
+        //}
 
         return false;
     }
