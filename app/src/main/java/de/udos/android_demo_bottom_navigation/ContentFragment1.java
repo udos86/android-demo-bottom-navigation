@@ -32,7 +32,7 @@ public class ContentFragment1 extends ListFragment {
         //return inflater.inflate(R.layout.fragment_content_1, container, false);
 
         mCountries = getResources().getStringArray(R.array.countries);
-        mArrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_activated_1, mCountries);
+        mArrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_activated_1, mCountries);
 
         setListAdapter(mArrayAdapter);
 
