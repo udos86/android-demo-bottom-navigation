@@ -1,38 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.udos.android_demo_bottom_navigation.MainActivity"
-    android:orientation="vertical">
+    tools:context="de.udos.android_demo_bottom_navigation.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/app_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:titleTextColor="#FFFFFF"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:layout_constraintBottom_toTopOf="@+id/containerContentFragment"
+        app:layout_constraintEnd_toEndOf="@+id/containerContentFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="#FFFFFF" />
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:id="@+id/containerContentFragment"
-        android:layout_weight="1">
-
-    </FrameLayout>
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_toolbar" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="#FFFFFF"
-        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="@color/nav_item_color_state_list"
+        app:itemTextColor="@color/nav_item_color_state_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/containerContentFragment"
+        app:layout_constraintTop_toBottomOf="@+id/containerContentFragment"
         app:menu="@menu/bottom_navigation" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

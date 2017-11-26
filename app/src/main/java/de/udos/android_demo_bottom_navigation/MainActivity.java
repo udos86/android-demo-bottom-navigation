@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         //final Fragment currentFragment = fragmentManager.findFragmentById(R.id.containerContentFragment);
         final Fragment nextFragment;
 
+        item.setChecked(true);
+
         switch (item.getItemId()) {
 
             case R.id.one:
